@@ -40,24 +40,7 @@ public class HospitalManagementSystem {
                     System.out.print("Enter patient ID: ");
                     String idString = scanner.nextLine();
                     if (patientDetails.findPatientById(idString) == true) {
-                        Patient patient = new Patient(idString, patientDetails.patientName(idString));
-                        patient.setTestRequired(true);
-
-                        HospitalMediatorImpl mediator = new HospitalMediatorImpl();
-
-                        Role doctor = new DoctorRole();
-                        Role nurse = new NurseRole();
-                        Role receptionist = new ReceptionistRole();
-                        Role lab = new LabRole();
-                        Role pharmacy = new PharmacyRole();
-                        Role billing = new BillingRole();
-
-                        mediator.setDoctor(doctor);
-                        mediator.setNurse(nurse);
-                        mediator.setReceptionist(receptionist);
-
-                        receptionist.performDuty(patient);
-                        nurse.performDuty(patient);
+                        DoctorRole.checkCondition(idString);
                     }
                     break;
                 case 5:

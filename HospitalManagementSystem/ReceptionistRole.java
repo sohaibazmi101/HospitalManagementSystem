@@ -1,3 +1,5 @@
+
+
 class ReceptionistRole implements Role {
     private HospitalMediator mediator;
 
@@ -10,5 +12,10 @@ class ReceptionistRole implements Role {
     public void performDuty(Patient patient) {
         System.out.println("Receptionist registering patient: " + patient.getId());
         mediator.assignRoom(patient);
+    }
+
+    public static void assignRoom(String idString){
+        System.out.println("Room has Been Assigned To patient "+idString);
+        DoctorRole.isTestRequired(idString);
     }
 }

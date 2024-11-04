@@ -9,7 +9,13 @@ class LabRole implements Role {
     @Override
     public void performDuty(Patient patient) {
         System.out.println("Lab conducting tests for patient: " + patient.getId());
-        patient.setTestResultPositive(true); // Simulated test result
         mediator.notifyDoctor(patient);
+    }
+
+    public static void labTest(String idString){
+        System.out.println("Initial Test Conducted");
+        System.out.println("Sample Collecting");
+        System.out.println("Report Generated");
+        DoctorRole.reviewReport(idString);
     }
 }
