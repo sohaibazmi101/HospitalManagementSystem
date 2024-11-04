@@ -5,7 +5,6 @@ public class HospitalManagementSystem {
 
         PatientDetails patientDetails = new PatientDetails();
 
-        // Initialize with 5 existing patients
         patientDetails.initializePatients();
 
         @SuppressWarnings("resource")
@@ -19,7 +18,7 @@ public class HospitalManagementSystem {
             System.out.println("5. Exit");
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:

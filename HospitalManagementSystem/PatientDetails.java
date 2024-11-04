@@ -6,14 +6,12 @@ class PatientData {
     private String name;
     private int age;
 
-    // Constructor
     public PatientData(String name, int age) {
         this.name = name;
         this.age = age;
-        this.id = generateId(); // Generate an ID when creating a new patient
+        this.id = generateId();
     }
 
-    // Method to generate a unique ID for the patient
     private String generateId() {
         return "P" + String.format("%03d", PatientDetails.getNextIdCount());
     }
@@ -38,16 +36,14 @@ class PatientData {
 
 class PatientDetails {
     private List<PatientData> patients = new ArrayList<>();
-    private static int patientCount = 0; // Static counter to assign IDs
+    private static int patientCount = 0;
 
-    // Method to add a new patient
     public void addPatient(String name, int age) {
         PatientData newPatient = new PatientData(name, age);
         patients.add(newPatient);
         System.out.println("New patient added: " + newPatient);
     }
 
-    // Method to find a patient by ID
     public boolean findPatientById(String id) {
         for (PatientData patient : patients) {
             if (patient.getId().equals(id)) {
@@ -59,7 +55,6 @@ class PatientDetails {
         return false;
     }
 
-    // Method to retrieve a patient's name using their ID
     public String patientName(String id) {
         for (PatientData patient : patients) {
             if (patient.getId().equals(id)) {
@@ -69,7 +64,6 @@ class PatientDetails {
         return "No patient found with ID: " + id;
     }
 
-    // Method to show all existing patients
     public void showAllPatients() {
         if (patients.isEmpty()) {
             System.out.println("No patients in the system.");
@@ -81,16 +75,14 @@ class PatientDetails {
         }
     }
 
-    // Method to initialize the system with some existing patients
     public void initializePatients() {
-        addPatient("John Doe", 30);
-        addPatient("Jane Smith", 25);
-        addPatient("Alice Johnson", 40);
-        addPatient("Bob Brown", 50);
-        addPatient("Charlie Davis", 35);
+        addPatient("Hari Dass", 30);
+        addPatient("Jane Alam", 25);
+        addPatient("Ali Haidar", 40);
+        addPatient("Harish Kumar", 50);
+        addPatient("Kamla Devi", 35);
     }
 
-    // Static method to get the next patient ID count
     public static int getNextIdCount() {
         return ++patientCount;
     }

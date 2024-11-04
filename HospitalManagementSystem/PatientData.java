@@ -1,11 +1,11 @@
 class PatientData {
-    private static int nextId = 1; // Base number for auto-increment
+    private static int nextId = 1;
     private String id;
     private String name;
     private int age;
 
     public PatientData(String name, int age) {
-        this.id = String.format("P%03d", nextId++); // Format ID as P001, P002, etc.
+        this.id = String.format("P%03d", nextId++);
         this.name = name;
         this.age = age;
     }
