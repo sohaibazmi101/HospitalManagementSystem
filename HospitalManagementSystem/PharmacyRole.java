@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 class PharmacyRole implements Role {
     BillingRole billingRole = new BillingRole();
+    DoctorRole doctorRole = new DoctorRole();
     @Override
     public void setMediator(HospitalMediator mediator) {
     }
@@ -18,7 +19,7 @@ class PharmacyRole implements Role {
             billingRole.performDuty(idString);
         }
         else if(input.equals("n")){
-            billingRole.performDuty(idString);
+            doctorRole.performDuty(idString);
         }
         else{
             System.out.println("Wrong Input (y for Yes n for No)");

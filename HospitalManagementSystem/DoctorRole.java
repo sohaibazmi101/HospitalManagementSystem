@@ -59,7 +59,7 @@ class DoctorRole implements Role {
             System.out.println("Report is Normal");
             nurseRole.performDuty(idString);
         } else if (input.equals("n")) {
-            System.out.println("Report is Negative Required for further treatment");
+            System.out.println("Report is Not Normal");
             System.out.println("Is Surgery Required(y for Yes n for No)");
             String input2 = scanner.nextLine().trim().toLowerCase();
             if (input2.equals("y")) {
