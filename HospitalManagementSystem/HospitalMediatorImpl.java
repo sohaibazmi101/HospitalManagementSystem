@@ -21,18 +21,20 @@ class HospitalMediatorImpl implements HospitalMediator {
         this.receptionist.setMediator(this);
     }
 
-    public void setLab(Role lab) 
-{
- this.lab = lab;
- this.lab.setMediator(this); 
-}
- public void setPharmacy(Role pharmacy) {
- this.pharmacy = pharmacy; 
-this.pharmacy.setMediator(this);
- }
- public void setBilling(Role billing) {
- this.billing = billing;
- this.billing.setMediator(this); }
+    public void setLab(Role lab) {
+        this.lab = lab;
+        this.lab.setMediator(this);
+    }
+
+    public void setPharmacy(Role pharmacy) {
+        this.pharmacy = pharmacy;
+        this.pharmacy.setMediator(this);
+    }
+
+    public void setBilling(Role billing) {
+        this.billing = billing;
+        this.billing.setMediator(this);
+    }
 
     @Override
     public void assignRoom(String idString) {
@@ -49,13 +51,15 @@ this.pharmacy.setMediator(this);
     @Override
     public void requestTest(String idString) {
         System.out.println("Requesting test for patient: " + idString);
-        if (lab != null) lab.performDuty(idString);
+        if (lab != null)
+            lab.performDuty(idString);
     }
 
     @Override
     public void prescribeMedication(String idString) {
         System.out.println("Doctor prescribing medication for patient: " + idString);
-        if (pharmacy != null) pharmacy.performDuty(idString);
+        if (pharmacy != null)
+            pharmacy.performDuty(idString);
     }
 
     @Override

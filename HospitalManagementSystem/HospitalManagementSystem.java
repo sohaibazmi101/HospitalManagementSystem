@@ -16,7 +16,7 @@ public class HospitalManagementSystem {
             System.out.println("\n1. Show all existing patients");
             System.out.println("2. Add new patient");
             System.out.println("3. Find existing patient by ID");
-            System.out.println("4. Assign Patients");
+            System.out.println("4. Assign Patient to Doctor");
             System.out.println("5. Exit");
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();

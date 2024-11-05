@@ -1,4 +1,5 @@
 class LabRole implements Role {
+    @SuppressWarnings("unused")
     private HospitalMediator mediator;
 
     @Override

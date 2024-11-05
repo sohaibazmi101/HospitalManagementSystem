@@ -31,6 +31,7 @@ class DoctorRole implements Role {
             pharmacyRole.performDuty(idString);
         } else {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
+            performDuty(idString);
         }
     }
 
@@ -47,6 +48,7 @@ class DoctorRole implements Role {
             nurseRole.performDuty(idString);
         } else {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
+            isTestRequired(idString);
         }
     }
 
@@ -70,9 +72,11 @@ class DoctorRole implements Role {
                 nurseRole.performDuty(idString);
             } else {
                 System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
+                reviewReport(idString);
             }
         } else {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
+            reviewReport(idString);
         }
     }
 
@@ -90,6 +94,7 @@ class DoctorRole implements Role {
             nurseRole.performDuty(idString);
         } else {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
+            ableToDischarge(idString);
         }
     }
 }
