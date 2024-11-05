@@ -1,8 +1,8 @@
 interface HospitalMediator {
-    void assignRoom(Patient patient);
-    void notifyDoctor(Patient patient);
-    void requestTest(Patient patient);
-    void prescribeMedication(Patient patient);
-    void dispenseMedication(Patient patient);
-    void generateInvoice(Patient patient);
+    void assignRoom(String idString);
+    void notifyDoctor(String idString);
+    void requestTest(String idString);
+    void prescribeMedication(String idString);
+    void dispenseMedication(String idString);
+    void generateInvoice(String iString);
 }

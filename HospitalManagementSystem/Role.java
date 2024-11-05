@@ -1,4 +1,4 @@
 interface Role {
-    void performDuty(Patient patient);
+    void performDuty(String idString);
     void setMediator(HospitalMediator mediator);
 }

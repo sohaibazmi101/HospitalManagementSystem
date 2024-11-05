@@ -1,6 +1,7 @@
 
 
 class ReceptionistRole implements Role {
+    @SuppressWarnings("unused")
     private HospitalMediator mediator;
 
     @Override
@@ -9,12 +10,8 @@ class ReceptionistRole implements Role {
     }
 
     @Override
-    public void performDuty(Patient patient) {
-        System.out.println("Receptionist registering patient: " + patient.getId());
-        mediator.assignRoom(patient);
-    }
-
-    public static void assignRoom(String idString){
+    public void performDuty(String idString) {
+        System.out.println("Receptionist registering patient: " + idString);
         System.out.println("Room has Been Assigned To patient "+idString);
         DoctorRole.isTestRequired(idString);
     }

@@ -35,36 +35,36 @@ this.pharmacy.setMediator(this);
  this.billing.setMediator(this); }
 
     @Override
-    public void assignRoom(Patient patient) {
-        System.out.println("Assigning room for patient: " + patient.getId());
-        notifyDoctor(patient);
+    public void assignRoom(String idString) {
+        System.out.println("Assigning room for patient: " + idString);
+        notifyDoctor(idString);
     }
 
     @Override
-    public void notifyDoctor(Patient patient) {
-        System.out.println("Notifying doctor about patient: " + patient.getId());
-        doctor.performDuty(patient);
+    public void notifyDoctor(String idString) {
+        System.out.println("Notifying doctor about patient: " + idString);
+        doctor.performDuty(idString);
     }
 
     @Override
-    public void requestTest(Patient patient) {
-        System.out.println("Requesting test for patient: " + patient.getId());
-        if (lab != null) lab.performDuty(patient);
+    public void requestTest(String idString) {
+        System.out.println("Requesting test for patient: " + idString);
+        if (lab != null) lab.performDuty(idString);
     }
 
     @Override
-    public void prescribeMedication(Patient patient) {
-        System.out.println("Doctor prescribing medication for patient: " + patient.getId());
-        if (pharmacy != null) pharmacy.performDuty(patient);
+    public void prescribeMedication(String idString) {
+        System.out.println("Doctor prescribing medication for patient: " + idString);
+        if (pharmacy != null) pharmacy.performDuty(idString);
     }
 
     @Override
-    public void dispenseMedication(Patient patient) {
-        System.out.println("Dispensing medication for patient: " + patient.getId());
+    public void dispenseMedication(String idString) {
+        System.out.println("Dispensing medication for patient: " + idString);
     }
 
     @Override
-    public void generateInvoice(Patient patient) {
-        System.out.println("Generating invoice for patient: " + patient.getId());
+    public void generateInvoice(String idString) {
+        System.out.println("Generating invoice for patient: " + idString);
     }
 }

@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class HospitalManagementSystem {
     public static void main(String[] args) {
 
+        DoctorRole doctorRole = new DoctorRole();
+
         PatientDetails patientDetails = new PatientDetails();
 
         patientDetails.initializePatients();
@@ -40,7 +42,7 @@ public class HospitalManagementSystem {
                     System.out.print("Enter patient ID: ");
                     String idString = scanner.nextLine();
                     if (patientDetails.findPatientById(idString) == true) {
-                        DoctorRole.checkCondition(idString);
+                        doctorRole.performDuty(idString);
                     }
                     break;
                 case 5:

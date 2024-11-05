@@ -1,6 +1,13 @@
 import java.util.Scanner;
 
 class DoctorRole implements Role {
+    static LabRole labRole = new LabRole();
+    static NurseRole nurseRole = new NurseRole();
+    ReceptionistRole receptionistRole = new ReceptionistRole();
+    static PharmacyRole pharmacyRole = new PharmacyRole();
+    static SurgeryRole surgeryRole = new SurgeryRole();
+
+    @SuppressWarnings("unused")
     private HospitalMediator mediator;
 
     @Override
@@ -9,87 +16,79 @@ class DoctorRole implements Role {
     }
 
     @Override
-    public void performDuty(Patient patient) {
-        System.out.println("Doctor examining patient: " + patient.getId());
-        if (patient.isTestRequired()) {
-            mediator.requestTest(patient);
-        } else {
-            mediator.prescribeMedication(patient);
-        }
-    }
-
-    public static void checkCondition(String patientId) {
+    public void performDuty(String idString) {
+        System.out.println("Doctor examining patient: " + idString);
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Is the condition critical for patient " + patientId + "? (y/n): ");
+        System.out.print("Is the condition critical for patient " + idString + "? (y/n): ");
         String input = scanner.nextLine().trim().toLowerCase();
 
         if (input.equals("y")) {
-            System.out.println("Condition is critical. Assigned Room for patient ID: " + patientId);
-            ReceptionistRole.assignRoom(patientId);
+            System.out.println("Condition is critical. Assigned Room for patient ID: " + idString);
+            receptionistRole.performDuty(idString);
         } else if (input.equals("n")) {
-            System.out.println("Condition is not critical. Medication will be served to patient ID: " + patientId);
-            PharmacyRole.serveMedication(patientId);
+            System.out.println("Condition is not critical. Medication will be served to patient ID: " + idString);
+            pharmacyRole.performDuty(idString);
         } else {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
         }
     }
 
-    public static void isTestRequired(String idString){
+    public static void isTestRequired(String idString) {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.println("Is Test Required (y or n)");
         String input = scanner.nextLine().trim().toLowerCase();
-        if(input.equals("y")){
+        if (input.equals("y")) {
             System.out.println("Go to Lab Section");
-            LabRole.labTest(idString);
-        }else if(input.equals("n")){
+            labRole.performDuty(idString);
+        } else if (input.equals("n")) {
             System.out.println("Go to Nurse Role");
-            NurseRole.continueTreatment(idString);
-        }else {
+            nurseRole.performDuty(idString);
+        } else {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
         }
     }
 
-    public static void reviewReport(String idString){
+    public static void reviewReport(String idString) {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.println("Is Report Positive(y for Yes n for No)");
         String input = scanner.nextLine().trim().toLowerCase();
-        if(input.equals("y")){
+        if (input.equals("y")) {
             System.out.println("Report is Normal");
-            NurseRole.continueTreatment(idString);
-        }else if(input.equals("n")){
+            nurseRole.performDuty(idString);
+        } else if (input.equals("n")) {
             System.out.println("Report is Negative Required for further treatment");
             System.out.println("Is Surgery Required(y for Yes n for No)");
             String input2 = scanner.nextLine().trim().toLowerCase();
-            if(input2.equals("y")){
+            if (input2.equals("y")) {
                 System.out.println("Go to Surgery Ward");
-                SurgeryRole.surgeryWard(idString);
-            }else if(input2.equals("n")){
+                surgeryRole.performDuty(idString);
+            } else if (input2.equals("n")) {
                 System.out.println("Go to Nurse Ward");
-                NurseRole.continueTreatment(idString);
-            }else {
+                nurseRole.performDuty(idString);
+            } else {
                 System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
             }
-        }else {
+        } else {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
         }
     }
 
-    public static void ableToDischarge(String idString){
+    public static void ableToDischarge(String idString) {
         System.out.println("Is patient able to Discharge (y for Yes n for No)");
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine().trim().toLowerCase();
-        if(input.equals("y")){
+        if (input.equals("y")) {
             System.out.println("Proceed to discharge");
             NurseRole.proceedToDischarge(idString);
 
-        }else if(input.equals("n")){
+        } else if (input.equals("n")) {
             System.out.println("Not able to discharge");
-            NurseRole.continueTreatment(idString);
-        }else {
+            nurseRole.performDuty(idString);
+        } else {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
         }
     }
