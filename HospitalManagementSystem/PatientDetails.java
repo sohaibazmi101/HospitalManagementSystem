@@ -1,39 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class PatientData {
-    private String id;
-    private String name;
-    private int age;
-
-    public PatientData(String name, int age) {
-        this.name = name;
-        this.age = age;
-        this.id = generateId();
-    }
-
-    private String generateId() {
-        return "P" + String.format("%03d", PatientDetails.getNextIdCount());
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    @Override
-    public String toString() {
-        return "PatientData{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", age=" + age + '}';
-    }
-}
-
 class PatientDetails {
     private List<PatientData> patients = new ArrayList<>();
     private static int patientCount = 0;

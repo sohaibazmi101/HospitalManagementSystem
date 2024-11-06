@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 class PharmacyRole implements Role {
-    BillingRole billingRole = new BillingRole();
-    DoctorRole doctorRole = new DoctorRole();
+    HospitalMediatorImpl mediator = new HospitalMediatorImpl();
+    Role doctor = new DoctorRole();
+    Role billing = new BillingRole();
     @Override
     public void setMediator(HospitalMediator mediator) {
     }
@@ -16,10 +17,12 @@ class PharmacyRole implements Role {
         String input = scanner.nextLine().trim().toLowerCase();
         if(input.equals("y")){
             System.out.println("Go To Billing Section");
-            billingRole.performDuty(idString);
+            mediator.setBilling(billing);
+            mediator.generateInvoice(idString);
         }
         else if(input.equals("n")){
-            doctorRole.performDuty(idString);
+            mediator.setDoctor(doctor);
+            mediator.assignRoom(idString);
         }
         else{
             System.out.println("Wrong Input (y for Yes n for No)");

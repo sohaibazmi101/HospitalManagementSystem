@@ -1,10 +1,7 @@
 class LabRole implements Role {
-    @SuppressWarnings("unused")
-    private HospitalMediator mediator;
 
     @Override
     public void setMediator(HospitalMediator mediator) {
-        this.mediator = mediator;
     }
 
     @Override
@@ -14,6 +11,5 @@ class LabRole implements Role {
         System.out.println("Sample Collecting");
         System.out.println("Report Generated");
         System.out.println("Report Forwarded to Doctor");
-        DoctorRole.reviewReport(idString);
     }
 }

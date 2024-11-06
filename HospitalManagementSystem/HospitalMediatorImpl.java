@@ -39,7 +39,7 @@ class HospitalMediatorImpl implements HospitalMediator {
     @Override
     public void assignRoom(String idString) {
         System.out.println("Assigning room for patient: " + idString);
-        notifyDoctor(idString);
+        receptionist.performDuty(idString);
     }
 
     @Override
@@ -51,24 +51,24 @@ class HospitalMediatorImpl implements HospitalMediator {
     @Override
     public void requestTest(String idString) {
         System.out.println("Requesting test for patient: " + idString);
-        if (lab != null)
-            lab.performDuty(idString);
+        lab.performDuty(idString);
     }
 
     @Override
-    public void prescribeMedication(String idString) {
+    public void prescribeMedication(String idString) {// Pharmacy Role
         System.out.println("Doctor prescribing medication for patient: " + idString);
-        if (pharmacy != null)
-            pharmacy.performDuty(idString);
+        pharmacy.performDuty(idString);
     }
 
     @Override
-    public void dispenseMedication(String idString) {
+    public void dispenseMedication(String idString) {//Nurse Role
         System.out.println("Dispensing medication for patient: " + idString);
+        nurse.performDuty(idString);
     }
 
     @Override
-    public void generateInvoice(String idString) {
+    public void generateInvoice(String idString) {// Billing Role
         System.out.println("Generating invoice for patient: " + idString);
+        billing.performDuty(idString);
     }
 }

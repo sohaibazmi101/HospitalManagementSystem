@@ -1,24 +1,21 @@
 class NurseRole implements Role {
 
-    static PharmacyRole pharmacyRole = new PharmacyRole();
-
-    @SuppressWarnings("unused")
-    private HospitalMediator mediator;
+    static HospitalMediatorImpl mediator = new HospitalMediatorImpl();
 
     @Override
     public void setMediator(HospitalMediator mediator) {
-        this.mediator = mediator;
     }
 
     @Override
     public void performDuty(String idString) {
         System.out.println("Nurse assisting patient: " + idString);
         System.out.println("Treatment is Continued");
-        DoctorRole.ableToDischarge(idString);
     }
 
-    public static void proceedToDischarge(String idString){
-        System.out.println("Patients "+idString+" is Ready to discharge");
-        pharmacyRole.performDuty(idString);
+    public static void proceedToDischarge(String idString) {
+        Role pharmacy = new PharmacyRole();
+        mediator.setPharmacy(pharmacy);
+        System.out.println("Patients " + idString + " is Ready to discharge");
+        mediator.prescribeMedication(idString);
     }
 }

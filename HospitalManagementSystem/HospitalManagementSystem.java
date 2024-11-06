@@ -3,9 +3,13 @@ import java.util.Scanner;
 public class HospitalManagementSystem {
     public static void main(String[] args) {
 
-        DoctorRole doctorRole = new DoctorRole();
+        Role doctor = new DoctorRole();
 
         PatientDetails patientDetails = new PatientDetails();
+
+        HospitalMediatorImpl mediator = new HospitalMediatorImpl();
+
+        mediator.setDoctor(doctor);
 
         patientDetails.initializePatients();
 
@@ -42,7 +46,7 @@ public class HospitalManagementSystem {
                     System.out.print("Enter patient ID: ");
                     String idString = scanner.nextLine();
                     if (patientDetails.findPatientById(idString) == true) {
-                        doctorRole.performDuty(idString);
+                        mediator.notifyDoctor(idString);
                     }
                     break;
                 case 5:
