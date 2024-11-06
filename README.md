@@ -1,84 +1,63 @@
+
+
 ---
 
 # Hospital Management System
 
-## Overview
+## Project Title
+### *Hospital Management System*
 
-The Hospital Management System is a Java application that simulates the process of managing patients in a hospital setting. It allows users to add patients, find existing patients by ID, assign roles to healthcare professionals, and manage the flow of patient care from admission to discharge.
+## Overview
+The Hospital Management System is designed to efficiently manage hospital operations, focusing on patient handling and medical procedures. Using Java and the Mediator design pattern, this project simulates a simplified, interactive console-based hospital environment. The system organizes roles such as Doctor, Nurse, Receptionist, Lab, Pharmacy, Surgery, and Billing to provide seamless patient care and operational coordination.
 
 ## Features
+1. **Patient Management**: Add, view, and search for patients by ID.
+2. **Role-Based Actions**:
+   - **Doctor**: Examines patients, decides if medication or further testing is needed, and refers critical cases to appropriate roles.
+   - **Nurse**: Assists patients in the treatment process.
+   - **Pharmacy**: Dispenses prescribed medication.
+   - **Lab**: Conducts tests and forwards results.
+   - **Billing**: Generates invoices for discharged patients.
+3. **Process Workflow**:
+   - Each patient’s condition is assessed and routed based on health needs.
+   - Supports critical workflows, including test requests, surgery scheduling, medication dispensation, and discharge.
+4. **Console-Based User Interface**: Allows users to interact with the system using console input, making the program easy to navigate and test.
 
-- **Patient Management**: Add new patients and view existing patient details.
-- **Role-Based Access**: Different roles such as Doctor, Nurse, Receptionist, and Pharmacy handle specific duties.
-- **Patient Treatment Flow**: Simulates the patient treatment process, including testing, surgery, and billing.
+## Design Pattern
+This project leverages the **Mediator Design Pattern**. The `HospitalMediator` interface and `HospitalMediatorImpl` implementation enable centralized communication between different roles, minimizing direct dependencies between components.
 
-## Structure
+## Classes
 
-### Classes
+- **Main Class** (`HospitalManagementSystem`): Initializes roles, patients, and the mediator, and handles user input for system operations.
+- **Role Classes** (`DoctorRole`, `NurseRole`, `ReceptionistRole`, `LabRole`, `PharmacyRole`, `BillingRole`, `SurgeryRole`): Each role class encapsulates specific responsibilities.
+- **Mediator** (`HospitalMediatorImpl`): Manages interactions between roles, facilitating actions like assigning rooms, notifying doctors, and generating invoices.
+- **Patient Management** (`Patient`, `PatientData`, `PatientDetails`): Manages patient details and provides methods to add, retrieve, and display patient information.
 
-1. **HospitalManagementSystem**
-   - The main entry point of the application.
-   - Provides a menu-driven interface for user interaction.
+## Getting Started
+1. **Compile and Run**: Ensure Java is installed on your system, then compile and run the `HospitalManagementSystem` class to start the console interface.
+2. **Interaction**: Follow on-screen prompts to perform various hospital management tasks, such as adding new patients or assigning them to doctors.
 
-2. **Patient**
-   - Represents a patient with attributes like ID, name, and whether a test is required.
+## Usage Example
 
-3. **PatientData**
-   - Manages the details of patients, including generating unique IDs.
+1. Show all existing patients
+2. Add new patient
+3. Find existing patient by ID
+4. Assign Patient to Doctor
+5. Exit
 
-4. **PatientDetails**
-   - Contains a list of patients and methods for adding, finding, and displaying patients.
-   - Initializes a set of default patients.
+- Choose an option to manage patients, assign duties, and simulate hospital operations.
+  
+## Key Functions and Commands
+- **Patient Management**: Adds and retrieves patient information.
+- **Role-based Commands**: Each role performs specific duties (e.g., `DoctorRole.performDuty()` for patient examination).
+- **Mediation**: `HospitalMediatorImpl` manages inter-role communication.
 
-5. **Role Interface**
-   - Defines the contract for roles in the hospital (e.g., Doctor, Nurse, Pharmacy).
-
-6. **DoctorRole, NurseRole, ReceptionistRole, PharmacyRole, SurgeryRole, BillingRole, LabRole**
-   - Implement the Role interface and handle specific duties related to patient care.
-
-7. **HospitalMediator**
-   - Interface for managing communication between different roles.
-
-8. **HospitalMediatorImpl**
-   - Implements the mediator pattern to coordinate tasks between various roles.
-
-## Usage
-
-### Running the Application
-
-1. Ensure you have JDK installed on your machine.
-2. Clone or download the repository to your local machine.
-3. Open a terminal and navigate to the project directory.
-4. Compile the Java files:
-
-### Menu Options
-
-- **1. Show all existing patients**: Displays a list of all registered patients.
-- **2. Add new patient**: Prompts the user to enter patient details and adds a new patient.
-- **3. Find existing patient by ID**: Allows the user to search for a patient using their ID.
-- **4. Assign Patients**: Assigns a patient to the appropriate role for further actions.
-- **5. Exit**: Terminates the application.
-
-### Role Functions
-
-- Each role (Doctor, Nurse, etc.) has specific duties that can be performed based on patient ID.
-- The flow of the application simulates real-world hospital procedures, guiding users through patient management.
-
-## Example Patient Initialization
-
-The system initializes with a few example patients:
-- **Hari Dass** (30)
-- **Jane Alam** (25)
-- **Ali Haidar** (40)
-- **Harish Kumar** (50)
-- **Kamla Devi** (35)
-
-## Dependencies
-
-- Java SE Development Kit (JDK)
+## Future Enhancements
+- Add a graphical interface for better usability.
+- Introduce a database for persistent patient and role data storage.
+- Expand role functionality and improve patient flow management.
 
 ## Conclusion
+This project offers a basic yet comprehensive simulation of a hospital management system, focusing on operational coordination and patient management. By using the Mediator pattern, the system achieves modularity and efficient role interactions.
 
-This Hospital Management System project serves as a practical demonstration of object-oriented programming concepts, design patterns, and role-based access control in Java. It can be further expanded with features like persistent storage, user authentication, and a graphical user interface.
-
----
+--- 
