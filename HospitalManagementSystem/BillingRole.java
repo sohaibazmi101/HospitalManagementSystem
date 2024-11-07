@@ -1,9 +1,6 @@
 import java.util.Scanner;
 
 class BillingRole implements Role {
-    @Override
-    public void setMediator(HospitalMediator mediator) {
-    }
 
     @Override
     public void performDuty(String idString) {
@@ -22,5 +19,9 @@ class BillingRole implements Role {
             System.out.println("Incorrect Input (y for Yes n for No)");
             performDuty(idString);
         }
+    }
+
+    @Override
+    public void setMediator(HospitalMediator mediator) {
     }
 }

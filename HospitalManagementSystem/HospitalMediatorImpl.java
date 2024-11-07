@@ -36,6 +36,10 @@ class HospitalMediatorImpl implements HospitalMediator {
         this.billing.setMediator(this);
     }
 
+
+
+    // Various Role
+
     @Override
     public void assignRoom(String idString) {
         System.out.println("Assigning room for patient: " + idString);
@@ -55,19 +59,19 @@ class HospitalMediatorImpl implements HospitalMediator {
     }
 
     @Override
-    public void prescribeMedication(String idString) {// Pharmacy Role
+    public void prescribeMedication(String idString) {     // Pharmacy Role
         System.out.println("Doctor prescribing medication for patient: " + idString);
         pharmacy.performDuty(idString);
     }
 
     @Override
-    public void dispenseMedication(String idString) {//Nurse Role
+    public void dispenseMedication(String idString) {     //Nurse Role
         System.out.println("Dispensing medication for patient: " + idString);
         nurse.performDuty(idString);
     }
 
     @Override
-    public void generateInvoice(String idString) {// Billing Role
+    public void generateInvoice(String idString) {  // Billing Role
         System.out.println("Generating invoice for patient: " + idString);
         billing.performDuty(idString);
     }

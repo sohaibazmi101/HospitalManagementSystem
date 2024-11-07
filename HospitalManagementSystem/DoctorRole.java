@@ -8,10 +8,6 @@ class DoctorRole implements Role {
     static SurgeryRole surgeryRole = new SurgeryRole();
 
     @Override
-    public void setMediator(HospitalMediator mediator) {
-    }
-
-    @Override
     public void performDuty(String idString) {
         Role pharmacy = new PharmacyRole();
         mediator.setPharmacy(pharmacy);
@@ -89,7 +85,7 @@ class DoctorRole implements Role {
         }
     }
 
-    private void ableToDischarge(String idString) {
+    public void ableToDischarge(String idString) {
         Role nurse = new NurseRole();
         mediator.setNurse(nurse);
         System.out.println("Is patient able to Discharge (y for Yes n for No)");
@@ -107,5 +103,9 @@ class DoctorRole implements Role {
             System.out.println("Invalid input. Please enter 'y' for Yes or 'n' for No.");
             ableToDischarge(idString);
         }
+    }
+
+    @Override
+    public void setMediator(HospitalMediator mediator) {
     }
 }
