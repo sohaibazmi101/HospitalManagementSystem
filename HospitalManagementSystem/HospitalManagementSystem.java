@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class HospitalManagementSystem {
     public static void main(String[] args) {
 
-        Role doctor = new DoctorRole();
-
         PatientDetails patientDetails = new PatientDetails();
 
         HospitalMediatorImpl mediator = new HospitalMediatorImpl();
+
+        Role doctor = new DoctorRole();
 
         mediator.setDoctor(doctor);
 
